@@ -1,17 +1,14 @@
 const { SlashCommandBuilder } = require('discord.js');
+const { generateMeme } = require('../../helpers/memeGenerator');
 
+// TODO: Add tracery content here
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('meme')
 		.setDescription('Generate a random meme!'),
 	async execute(interaction) {
-		const response = await fetch('https://api.imgflip.com/get_memes', {
-			method: 'GET',
-		});
+		const response = await generateMeme();
 
-		const json = await response.json();
-		console.log(json.data.memes[0].url);
-
-		await interaction.reply('check the logs');
+		await interaction.reply(response);
 	},
 };
