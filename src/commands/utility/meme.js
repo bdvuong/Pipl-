@@ -1,7 +1,21 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { generateMeme } = require('../../helpers/memeGenerator');
+const tracery = require("tracery-grammar");
 
-// TODO: Add tracery content here
+const topTextTracery = tracery.createGrammar({
+
+});
+
+topTextTracery.addModifiers(tracery.baseEngModifiers);
+
+
+const bottomTextTracery = tracery.createGrammar({
+
+});
+
+bottomTextTracery.addModifiers(tracery.baseEngModifiers);
+
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('meme')
